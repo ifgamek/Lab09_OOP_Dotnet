@@ -1,5 +1,5 @@
 public class Hero {
-    
+
     public string Name;
     public int Health;
     public int level;
@@ -12,3 +12,4 @@ public class Hero {
         Experience = 0;
     }
 }
+
