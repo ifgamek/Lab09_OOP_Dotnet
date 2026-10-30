@@ -3,30 +3,34 @@ Hero yaroslav = new Hero("Ярослав", 100);
 Hero anastasia = new Hero("Анастасия", 90);
 Hero artem = new Hero("Артем", 120);
 
-yaroslav.Health = 75;
+Console.WriteLine($"До вызова : {yaroslav.Health}, {anastasia.Health} , {artem.Health}");
 
-Console.WriteLine(">>> Герой <<<");
-Console.WriteLine($"Имя: {yaroslav.Name}");
-Console.WriteLine($"Здоровье: {yaroslav.Health}");
-Console.WriteLine($"Уровень: {yaroslav.level}");
-Console.WriteLine($"Опыт: {yaroslav.Experience}");
+yaroslav.TakeDamage(25);
+anastasia.TakeDamage(30);
+
+Console.WriteLine($"\nПосле вызова {yaroslav.Health}, {anastasia.Health} , {artem.Health}");
 
 
-Console.WriteLine();
+yaroslav.TakeDamage(-20);
+Console.WriteLine($"\nПосле неверного урона : {yaroslav.Health}");
 
-Console.WriteLine(">>> Герой 2 <<<");
-Console.WriteLine($"Имя: {anastasia.Name}");
-Console.WriteLine($"Здоровье: {anastasia.Health}");
-Console.WriteLine($"Уровень: {anastasia.level}");
-Console.WriteLine($"Опыт: {anastasia.Experience}");
+artem.TakeDamage(200);
+Console.WriteLine($"После сильного урона, Артем :{artem.Health}");
 
-Console.WriteLine();
+yaroslav.Heal(10);
+yaroslav.GainExperience(40);
+yaroslav.GainExperience(25);
 
-Console.WriteLine(">>> Герой 3 <<<");
-Console.WriteLine($"Имя: {artem.Name}");
-Console.WriteLine($"Здоровье: {artem.Health}");
-Console.WriteLine($"Уровень: {artem.level}");
-Console.WriteLine($"Опыт: {artem.Experience}");
+
+Console.WriteLine($"\nПосле лечения, Ярослав: {yaroslav.Health}");
+Console.WriteLine($"Опыт Ярослав : {yaroslav.Experience}");
+
+
+
+
+
+
+
 
 
 
