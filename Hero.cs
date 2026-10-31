@@ -41,6 +41,17 @@ public class Hero {
         Experience += amount;
     }
 
-    
+    public bool IsAlive() {
+        return Health > 0;
+    }
+
+
+    public string GetInfo() {
+        return $">>> {Name} <<<\n" +
+                $"Здороваье :{Health}\n" +
+                $"Уровень :{level}\n" +
+                $"Опыт :{Experience}";
+        
+    }
 }
 

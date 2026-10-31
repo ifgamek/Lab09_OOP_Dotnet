@@ -3,6 +3,7 @@ Hero yaroslav = new Hero("Ярослав", 100);
 Hero anastasia = new Hero("Анастасия", 90);
 Hero artem = new Hero("Артем", 120);
 
+
 Console.WriteLine($"До вызова : {yaroslav.Health}, {anastasia.Health} , {artem.Health}");
 
 yaroslav.TakeDamage(25);
@@ -26,43 +27,54 @@ Console.WriteLine($"\nПосле лечения, Ярослав: {yaroslav.Healt
 Console.WriteLine($"Опыт Ярослав : {yaroslav.Experience}");
 
 
+bool yaroslavAlive = yaroslav.IsAlive();
+Console.WriteLine($"\nЯрослав жив {yaroslavAlive}");
+Console.WriteLine($"Анастасия жива {anastasia.IsAlive()}");
+Console.WriteLine($"Артем жив {artem.IsAlive()}");
+
+
+if (yaroslavAlive) {
+    Console.WriteLine("\nЯрослав может продолжать приключение");
+}
+else {
+    Console.WriteLine("Ярослав больше не может сражаться");
+}
 
 
 
-
-
-
-
-
-Inventory yaroslav_1 = new Inventory("щит", 60);
-Inventory anastasia_1 = new Inventory("стрела", 15);
-Inventory artem_1 = new Inventory("зелье", 20);
-
-Console.WriteLine();
-
-Console.WriteLine(">>> Герой <<<");
-Console.WriteLine($"Имя: {yaroslav.Name}");
-Console.WriteLine($"Инвентарь: {yaroslav_1.Name}");
-Console.WriteLine($"{yaroslav_1.Use}");
-Console.WriteLine($"{yaroslav_1.Drop}");
-
+string info = yaroslav.GetInfo();
+Console.WriteLine("\n \n Строка получена. Сейчас выведем ее:");
+// Console.WriteLine(info);
 
 Console.WriteLine();
-
-Console.WriteLine(">>> Герой <<<");
-Console.WriteLine($"Имя: {anastasia.Name}");
-Console.WriteLine($"Инвентарь: {anastasia_1.Name}");
-Console.WriteLine($"{anastasia_1.Use}");
-Console.WriteLine($"{anastasia_1.Drop}");
-
-
+Console.WriteLine(anastasia.GetInfo());
 Console.WriteLine();
-
-Console.WriteLine(">>> Герой <<<");
-Console.WriteLine($"Имя: {artem.Name}");
-Console.WriteLine($"Инвентарь: {artem_1.Name}");
-Console.WriteLine($"{artem_1.Use}");
-Console.WriteLine($"{artem_1.Drop}");
+Console.WriteLine(artem.GetInfo());
 
 
-Console.WriteLine();
+
+Console.WriteLine("\n \n \n");
+
+
+
+
+Inventory yar_inv = new Inventory("доспех", 1);
+Inventory ana_inv = new Inventory("еда", 5);
+Inventory art_inv = new Inventory("камень", 8);
+
+yar_inv.Plus_i(1);
+ana_inv.Plus_i(-2);
+art_inv.Plus_i(3);
+
+
+Console.WriteLine($"\n\n\n Яр имеет у себя в инвентаре данное кол-во {yar_inv.Name} {yar_inv.Count}");
+Console.WriteLine($"Анастасия имеет у себя в инвентаре данное кол-во {ana_inv.Name} {ana_inv.Count}");
+Console.WriteLine($"Артем имеет у себя в инвентаре данное кол-во {art_inv.Name} {art_inv.Count}");
+
+yar_inv.Drop(1);
+Console.WriteLine($"\n Ярослав выбросил предмет {yar_inv.Name} и у него теперь в инвентаре  {yar_inv.Count } данного предмета");
+
+
+Console.WriteLine($"\n{yaroslav.Name}: {yar_inv.INFO_i()}");
+Console.WriteLine($"{anastasia.Name}: {ana_inv.INFO_i()}");
+Console.WriteLine($"{artem.Name}: {art_inv.INFO_i()}");
